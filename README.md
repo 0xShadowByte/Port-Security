@@ -38,8 +38,12 @@ We use the statement "en" - to enable privilage exact mode, and "sh port-securit
 
 For the first scenario we are going to set up the device MAC addresses as static and then the violation mode to oprotect. Take note before we start configuring the switch with port security that it is disabled by default so you have to manually enable it by using commands and also you can only configure port security on access ports you can't do this on trunk ports or eitehr channel ports.
 
-*Ref 3: MAC address for PC3 is "0002.1769.5791" (click on PC3 > Config > FastEthernet0)*
+*Ref 3: Finding the MAC address for PC3 which is "0002.1769.5791" (click on PC3 > Config > FastEthernet0)*
 
 ![image](https://github.com/user-attachments/assets/ccd658aa-87de-49ef-9ffc-5629ddcbe652)
 
+*Ref 4: Using the CLI command on the switch to configure port security*
 
+Go to the switch and type in command "en > conf t > int-fa0/1" (enable privilage mode, configure terminal and interface number which is fa0/1). From there type in command "switchport mode access > switchport port-security > switchport port-security maximum 2 > switchport port-security violation protect > switchport port-security mac-address 0002.1769.5791" (type in switch port port security and press enter, there we have enabled port security. Next parameter that we are going to doo is to specifiy how many maximum machines we're going to allow on the switch port; which is 2 from the example. Next parameter we can specify what kind of violation mode we want, in our case we want to set our violation mode as protect. So to do so we type in switch port port security and violation and type in protect because we wanted to specify that we want to protect. Next we're going to do a static method for the MAC address, let's type in the command switchport port-security mac-address 0002.1769.5791. And to verify if our command works we have to type in command sh port-security interface fa0/1.
+
+![image](https://github.com/user-attachments/assets/2465956d-1810-4719-98d9-6b84b57260cc)
