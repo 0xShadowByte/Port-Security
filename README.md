@@ -54,6 +54,21 @@ Type in sh port-security or sh port-security address.
 
 ![image](https://github.com/user-attachments/assets/19c218d3-4d31-4d7a-ac98-8883631da6ab)
 
+### Scenario 2 - Using MAC address sticky and having our violation as shutdown
+
+*Ref 6: Using the same switch we're gonna set up the MAC address stick and violation as shutdown for the second PC, PC4*
+
+First step is to enable port security then type in int fa0/2, for interface number fa0/2. Then we need to make sure tha tan access port is enable so we type in switchport mode accesss and then type in switchpoort port-security then switchport port-security mac-address sticky. We type in sticky instead of a mac addresss oof the machine. We don't need to set up violation mode to shutdown since it's set up by default. 
+
+![image](https://github.com/user-attachments/assets/d889f156-de77-440f-a180-8dfeeab34eea)
+
+And to verify if its configured properly we type in sh port-security int fa0/2, sh port-security, or port-security address. Now this shows that two MAC address has port security set up. One is set up with protect as a security action and the other as shutdown. They're configured properly. *Ref 7*
+
+![image](https://github.com/user-attachments/assets/780d993f-1da6-4871-a055-38262d01d2b8)
+
+If you want to set up port security for a range of ports, for example fa0/03-10, violation as protect and mac address as sticky. Type in command interface range fa0/03-10, switch port-security violation protect and switch port-security mac-address sticky. *Ref 8*
+
+![image](https://github.com/user-attachments/assets/7640a1e2-7a37-452e-bdb2-1e3f3dcca00b)
 
 
 
